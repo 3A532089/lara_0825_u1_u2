@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 use App\Post;
 
-class CommentModel extends Model
+class Comments extends Model
 {
     protected $table='comments';
 

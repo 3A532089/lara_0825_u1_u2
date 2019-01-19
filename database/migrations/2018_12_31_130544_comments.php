@@ -15,7 +15,12 @@ class Comments extends Migration
     {
         Schema::create('comments', function (Blueprint $table) {
             $table->increments('id');
-            $table->text('comment');
+            $table->integer('post_id')->unsigned();
+            $table->foreign('post_id')
+                  ->references('id')->on('posts')
+                  ->onDelete('strict')
+                  ->onUpdate('strict');
+            $table->text('content');
             $table->timestamps();
         });
     }
